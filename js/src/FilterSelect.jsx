@@ -1,6 +1,8 @@
 /** @jsx yolk.createElement */
 
 function FilterSelect (props) {
+  const {filter} = props
+
   const handleAll = yolk.createEventHandler()
   const handleActive = yolk.createEventHandler()
   const handleCompleted = yolk.createEventHandler()
@@ -10,7 +12,7 @@ function FilterSelect (props) {
   const completed = handleCompleted.map(() => 'completed')
   all.merge(active).merge(completed).subscribe(FilterActions.set)
 
-  const current = props.map(p => p.filter.type)
+  const current = filter.map(f => f.type)
   const isAll = current.map(c => c === 'all' ? 'selected' : '').startWith('')
   const isActive = current.map(c => c === 'active' ? 'selected' : '').startWith('')
   const isCompleted = current.map(c => c === 'completed' ? 'selected' : '').startWith('')

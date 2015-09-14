@@ -1,8 +1,7 @@
 /** @jsx yolk.createElement */
 
 function App (props) {
-  const todos = props.map(p => p.todos)
-  const filter = props.map(p => p.filter)
+  const {filter, todos} = props
 
   return (
     <div>

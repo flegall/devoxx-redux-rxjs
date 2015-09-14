@@ -1,8 +1,7 @@
 /** @jsx yolk.createElement */
 
 function TodoList (props) {
-  const todos = props.map(p => p.todos)
-  const filter = props.map(p => p.filter)
+  const {todos, filter} = props
 
   const todoItems =
     todos

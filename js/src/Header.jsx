@@ -1,6 +1,6 @@
 /** @jsx yolk.createElement */
 
-function Header (props) {
+function Header () {
   const handleSubmit = yolk.createEventHandler()
   const handleChange = yolk.createEventHandler()
 

@@ -3,12 +3,8 @@
 "use strict";
 
 function App(props) {
-  var todos = props.map(function (p) {
-    return p.todos;
-  });
-  var filter = props.map(function (p) {
-    return p.filter;
-  });
+  var filter = props.filter;
+  var todos = props.todos;
 
   return yolk.createElement(
     "div",
@@ -51,6 +47,8 @@ FilterActions.register = function (updates) {
 'use strict';
 
 function FilterSelect(props) {
+  var filter = props.filter;
+
   var handleAll = yolk.createEventHandler();
   var handleActive = yolk.createEventHandler();
   var handleCompleted = yolk.createEventHandler();
@@ -66,8 +64,8 @@ function FilterSelect(props) {
   });
   all.merge(active).merge(completed).subscribe(FilterActions.set);
 
-  var current = props.map(function (p) {
-    return p.filter.type;
+  var current = filter.map(function (f) {
+    return f.type;
   });
   var isAll = current.map(function (c) {
     return c === 'all' ? 'selected' : '';
@@ -184,7 +182,7 @@ function Footer() {
 
 'use strict';
 
-function Header(props) {
+function Header() {
   var handleSubmit = yolk.createEventHandler();
   var handleChange = yolk.createEventHandler();
 
@@ -222,12 +220,8 @@ function Header(props) {
 "use strict";
 
 function Main(props) {
-  var todos = props.map(function (p) {
-    return p.todos;
-  });
-  var filter = props.map(function (p) {
-    return p.filter;
-  });
+  var filter = props.filter;
+  var todos = props.todos;
 
   return yolk.createElement(
     "section",
@@ -366,11 +360,7 @@ TodoActions.register = function (updates) {
 "use strict";
 
 function TodoCount(props) {
-  var todos = props.map(function (p) {
-    return p.todos;
-  });
-
-  var count = todos.flatMap(function (todos) {
+  var count = props.todos.flatMap(function (todos) {
     return Rx.Observable.from(todos).filter(function (todo) {
       return !todo.completed;
     }).scan(function (acc) {
@@ -391,6 +381,8 @@ function TodoCount(props) {
 "use strict";
 
 function TodoItem(props) {
+  var todo = props.todo;
+
   var toggleComplete = yolk.createEventHandler();
   var handleRemove = yolk.createEventHandler();
   var handleInputChange = yolk.createEventHandler(function (ev) {
@@ -403,17 +395,13 @@ function TodoItem(props) {
     return false;
   });
 
-  var todo = props.map(function (p) {
-    return p.todo;
+  var editing = handleEditStart.merge(handleEditEnd).startWith(false);
+  var completed = todo.map(function (t) {
+    return t.completed;
   });
   var label = todo.map(function (t) {
     return t.label;
   });
-  var completed = todo.map(function (t) {
-    return t.completed;
-  });
-
-  var editing = handleEditStart.merge(handleEditEnd).startWith(false);
 
   var itemClassNames = Rx.Observable.combineLatest(completed, editing, function (completed, editing) {
     var classes = "";
@@ -463,12 +451,8 @@ function TodoItem(props) {
 "use strict";
 
 function TodoList(props) {
-  var todos = props.map(function (p) {
-    return p.todos;
-  });
-  var filter = props.map(function (p) {
-    return p.filter;
-  });
+  var todos = props.todos;
+  var filter = props.filter;
 
   var todoItems = todos.combineLatest(filter, function (todos, filter) {
     return filter.fn(todos);
