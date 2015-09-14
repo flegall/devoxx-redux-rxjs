@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "babel js/src --watch --out-file js/app.js"
+    "start": "babel js --watch --out-file app.js"
   },
   "dependencies": {
     "rx": "^3.1.2",
