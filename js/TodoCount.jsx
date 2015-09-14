@@ -4,7 +4,7 @@ function TodoCount (props) {
   const count = props.todos.flatMap(todos => {
     return Rx.Observable.from(todos)
       .filter(todo => !todo.completed)
-      .scan(acc => acc + 1, 0)
+      .reduce(acc => acc + 1, 0)
       .map(length => (length === 1) ? `1 item left` : `${length} items left`)
   })
 
