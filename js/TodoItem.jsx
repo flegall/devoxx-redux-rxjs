@@ -6,26 +6,18 @@ function TodoItem (props) {
   const toggleComplete = yolk.createEventHandler()
   const handleRemove = yolk.createEventHandler()
   const handleInputChange = yolk.createEventHandler(ev => ev.target.value)
-  const handleEditStart = yolk.createEventHandler(() => true)
-  const handleEditEnd = yolk.createEventHandler(() => false)
+  const handleEditStart = yolk.createEventHandler(true)
+  const handleEditEnd = yolk.createEventHandler(false)
 
   const editing = handleEditStart.merge(handleEditEnd).startWith(false)
   const completed = todo.map(t => t.completed)
   const label = todo.map(t => t.label)
 
-  const itemClassNames = Rx.Observable.combineLatest(completed, editing, (completed, editing) => {
-    let classes = ``
 
-    if (completed) {
-      classes += ` completed`
-    }
-
-    if (editing) {
-      classes += ` editing`
-    }
-
-    return classes
-  })
+  const itemClassNames = [
+    completed.map(bool => bool ? `completed` : ``),
+    editing.map(bool => bool ? `editing` : ``)
+  ]
 
   toggleComplete
     .withLatestFrom(todo, (_, t) => t)

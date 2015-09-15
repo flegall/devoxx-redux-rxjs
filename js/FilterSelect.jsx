@@ -3,14 +3,11 @@
 function FilterSelect (props) {
   const {filter} = props
 
-  const handleAll = yolk.createEventHandler()
-  const handleActive = yolk.createEventHandler()
-  const handleCompleted = yolk.createEventHandler()
+  const handleAll = yolk.createEventHandler('all')
+  const handleActive = yolk.createEventHandler('active')
+  const handleCompleted = yolk.createEventHandler('completed')
 
-  const all = handleAll.map(() => 'all')
-  const active = handleActive.map(() => 'active')
-  const completed = handleCompleted.map(() => 'completed')
-  all.merge(active).merge(completed).subscribe(FilterActions.set)
+  handleAll.merge(handleActive).merge(handleCompleted).subscribe(FilterActions.set)
 
   const current = filter.map(f => f.type)
   const isAll = current.map(c => c === 'all' ? 'selected' : '').startWith('')

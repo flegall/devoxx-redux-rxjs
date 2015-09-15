@@ -2,15 +2,15 @@
 
 function Header () {
   const handleSubmit = yolk.createEventHandler()
-  const handleChange = yolk.createEventHandler()
+  const handleChange = yolk.createEventHandler(ev => ev.target.value)
 
   const reset = handleSubmit.map(() => '')
-  const value = handleChange.map(e => e.target.value)
-  const displayValue = value.merge(reset).startWith('')
+  const displayValue = handleChange.merge(reset).startWith('')
 
   handleSubmit
     .do(e => e.preventDefault())
-    .withLatestFrom(value, (_, val) => val)
+    .withLatestFrom(handleChange, (_, val) => val)
+    .filter(val => val.length > 0)
     .subscribe(TodoActions.add)
 
   return (
