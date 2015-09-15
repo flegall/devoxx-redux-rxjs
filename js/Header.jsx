@@ -1,17 +1,17 @@
 /** @jsx yolk.createElement */
 
 function Header () {
-  const handleSubmit = yolk.createEventHandler()
+  const handleSubmit = yolk.createEventHandler(ev => ev.preventDefault())
   const handleChange = yolk.createEventHandler(ev => ev.target.value)
-
-  const reset = handleSubmit.map(() => '')
-  const displayValue = handleChange.merge(reset).startWith('')
+  const displayValue = new Rx.BehaviorSubject('')
 
   handleSubmit
-    .do(e => e.preventDefault())
-    .withLatestFrom(handleChange, (_, val) => val)
+    .withLatestFrom(displayValue, (_, val) => val)
     .filter(val => val.length > 0)
     .subscribe(TodoActions.add)
+
+  handleChange.subscribe(displayValue)
+  handleSubmit.map(() => '').subscribe(displayValue)
 
   return (
     <header className="header">
