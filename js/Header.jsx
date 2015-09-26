@@ -1,8 +1,8 @@
-/** @jsx yolk.createElement */
+/** @jsx Yolk.createElement */
 
 function Header () {
-  const handleSubmit = yolk.createEventHandler(ev => ev.preventDefault())
-  const handleChange = yolk.createEventHandler(ev => ev.target.value)
+  const handleSubmit = Yolk.createEventHandler(ev => ev.preventDefault())
+  const handleChange = Yolk.createEventHandler(ev => ev.target.value)
   const displayValue = new Rx.BehaviorSubject('')
 
   handleSubmit

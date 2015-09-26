@@ -1,13 +1,13 @@
-/** @jsx yolk.createElement */
+/** @jsx Yolk.createElement */
 
 function TodoItem (props) {
   const {todo} = props
 
-  const toggleComplete = yolk.createEventHandler()
-  const handleRemove = yolk.createEventHandler()
-  const handleInputChange = yolk.createEventHandler(ev => ev.target.value)
-  const handleEditStart = yolk.createEventHandler(true)
-  const handleEditEnd = yolk.createEventHandler(false)
+  const toggleComplete = Yolk.createEventHandler()
+  const handleRemove = Yolk.createEventHandler()
+  const handleInputChange = Yolk.createEventHandler(ev => ev.target.value)
+  const handleEditStart = Yolk.createEventHandler(true)
+  const handleEditEnd = Yolk.createEventHandler(false)
 
   const editing = handleEditStart.merge(handleEditEnd).startWith(false)
   const completed = todo.map(t => t.completed)

@@ -1,4 +1,4 @@
-/** @jsx yolk.createElement */
+/** @jsx Yolk.createElement */
 
 function TodoCount (props) {
   const count = props.todos.flatMap(todos => {

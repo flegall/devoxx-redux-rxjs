@@ -4,10 +4,10 @@
     "start": "babel js --watch --out-file app.js"
   },
   "dependencies": {
-    "rx": "^3.1.2",
+    "rx": "^4",
     "todomvc-app-css": "^2.0.0",
     "todomvc-common": "^1.0.0",
-    "yolk": "^0.3.9"
+    "yolk": "^0.3.10"
   },
   "devDependencies": {
     "babel": "^5.8.23"

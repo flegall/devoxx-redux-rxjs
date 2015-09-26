@@ -1,11 +1,11 @@
-/** @jsx yolk.createElement */
+/** @jsx Yolk.createElement */
 
 function FilterSelect (props) {
   const {filter} = props
 
-  const handleAll = yolk.createEventHandler('all')
-  const handleActive = yolk.createEventHandler('active')
-  const handleCompleted = yolk.createEventHandler('completed')
+  const handleAll = Yolk.createEventHandler('all')
+  const handleActive = Yolk.createEventHandler('active')
+  const handleCompleted = Yolk.createEventHandler('completed')
 
   handleAll.merge(handleActive).merge(handleCompleted).subscribe(FilterActions.set)
 

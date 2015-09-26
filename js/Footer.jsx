@@ -1,4 +1,4 @@
-/** @jsx yolk.createElement */
+/** @jsx Yolk.createElement */
 
 function Footer () {
   return (

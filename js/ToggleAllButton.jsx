@@ -1,7 +1,7 @@
-/** @jsx yolk.createElement */
+/** @jsx Yolk.createElement */
 
 function ToggleAllButton () {
-  const handleChange = yolk.createEventHandler(null, true)
+  const handleChange = Yolk.createEventHandler(null, true)
   const checked = handleChange.scan(acc => !acc, true)
 
   checked.subscribe(TodoActions.toggleAll)

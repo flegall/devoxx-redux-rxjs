@@ -1,7 +1,7 @@
-/** @jsx yolk.createElement */
+/** @jsx Yolk.createElement */
 
 function CompleteButton () {
-  const handleClear = yolk.createEventHandler()
+  const handleClear = Yolk.createEventHandler()
 
   handleClear.subscribe(TodoActions.clearCompleted)
 
