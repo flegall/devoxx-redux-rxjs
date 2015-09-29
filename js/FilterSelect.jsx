@@ -3,9 +3,9 @@
 function FilterSelect (props) {
   const {filter} = props
 
-  const handleAll = Yolk.createEventHandler('all')
-  const handleActive = Yolk.createEventHandler('active')
-  const handleCompleted = Yolk.createEventHandler('completed')
+  const handleAll = this.createEventHandler('all')
+  const handleActive = this.createEventHandler('active')
+  const handleCompleted = this.createEventHandler('completed')
 
   handleAll.merge(handleActive).merge(handleCompleted).subscribe(FilterActions.set)
 

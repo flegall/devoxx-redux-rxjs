@@ -7,7 +7,7 @@
     "rx": "^4",
     "todomvc-app-css": "^2.0.0",
     "todomvc-common": "^1.0.0",
-    "yolk": "^0.3.10"
+    "yolk": "^0.4.1"
   },
   "devDependencies": {
     "babel": "^5.8.23"
