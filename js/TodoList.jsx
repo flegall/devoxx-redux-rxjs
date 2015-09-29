@@ -7,7 +7,7 @@ function TodoList (props) {
     todos
     .combineLatest(filter, (todos, filter) => filter.fn(todos))
     .flatMapLatest(todos => {
-      return Rx.Observable.from(todos).reduce((acc, todo) => acc.concat(<TodoItem todo={todo} key={todo.id} />), [])
+      return Rx.Observable.from(todos).map(todo => <TodoItem todo={todo} key={todo.id} />).toArray()
     })
 
   return <ul className="todo-list">{todoItems}</ul>
