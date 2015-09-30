@@ -1,5 +1,3 @@
-/** @jsx Yolk.createElement */
-
 function Header () {
   const handleSubmit = this.createEventHandler(ev => ev.preventDefault())
   const handleChange = this.createEventHandler(ev => ev.target.value)

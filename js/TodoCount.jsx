@@ -1,5 +1,3 @@
-/** @jsx Yolk.createElement */
-
 function TodoCount (props) {
   const count = props.todos.flatMap(todos => {
     return Rx.Observable.from(todos)

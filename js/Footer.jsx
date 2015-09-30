@@ -1,5 +1,3 @@
-/** @jsx Yolk.createElement */
-
 function Footer () {
   return (
     <footer className="info">

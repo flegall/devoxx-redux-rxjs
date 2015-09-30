@@ -1,5 +1,3 @@
-/** @jsx Yolk.createElement */
-
 function FilterSelect (props) {
   const {filter} = props
 
