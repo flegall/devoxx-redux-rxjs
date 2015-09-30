@@ -1,5 +1,3 @@
-/** @jsx Yolk.createElement */
-
 function CompleteButton () {
   const handleClear = this.createEventHandler()
 

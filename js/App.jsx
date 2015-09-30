@@ -1,5 +1,3 @@
-/** @jsx Yolk.createElement */
-
 function App (props) {
   const {filter, todos} = props
 

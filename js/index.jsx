@@ -1,5 +1,3 @@
-/** @jsx Yolk.createElement */
-
 const todoStore = new TodoStore()
 const filterStore = new FilterStore()
 TodoActions.register(todoStore.updates)
