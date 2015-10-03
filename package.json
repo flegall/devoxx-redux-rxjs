@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start": "babel js --watch --out-file app.js",
-    "update": "git reset --hard origin/master && npm update yolk && git commit -m 'Update yolk dependency'"
+    "update": "git reset --hard origin/master && npm update yolk"
   },
   "dependencies": {
     "rx": "^4",
