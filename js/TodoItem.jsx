@@ -8,8 +8,8 @@ function TodoItem (props) {
   const handleEditEnd = this.createEventHandler(false)
 
   const editing = handleEditStart.merge(handleEditEnd).startWith(false)
-  const completed = todo.map(t => t.completed)
-  const label = todo.map(t => t.label)
+  const completed = todo.map(t => t.get('completed'))
+  const label = todo.map(t => t.get('label'))
 
 
   const itemClassNames = [

@@ -4,9 +4,7 @@ function TodoList (props) {
   const todoItems =
     todos
     .combineLatest(filter, (todos, filter) => filter.fn(todos))
-    .flatMapLatest(todos => {
-      return Rx.Observable.from(todos).map(todo => <TodoItem todo={todo} key={todo.id} />).toArray()
-    })
+    .map(todos => todos.map(todo => <TodoItem todo={todo} key={todo.get('id')} />))
 
   return <ul className="todo-list">{todoItems}</ul>
 }

@@ -1,5 +1,5 @@
 function TodoStore () {
-  this.updates = new Rx.BehaviorSubject([])
+  this.updates = new Rx.BehaviorSubject(Immutable.List())
 
   this.todos =
     this.updates

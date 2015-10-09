@@ -10,8 +10,8 @@ let TodoActions = {
 TodoActions.register = function (updates) {
   this.add
     .map(label => {
-      const todo = new Todo({label})
-      return todos => ([todo]).concat(todos)
+      const todo = createTodo(label)
+      return todos => todos.unshift(todo)
     })
     .subscribe(updates)
 
@@ -19,12 +19,7 @@ TodoActions.register = function (updates) {
     .map(todo => {
       return todos => {
         const index = todos.indexOf(todo)
-
-        if (index > -1) {
-          todos.splice(index, 1)
-        }
-
-        return todos
+        return todos.remove(index)
       }
     })
     .subscribe(updates)
@@ -32,19 +27,7 @@ TodoActions.register = function (updates) {
   this.clearCompleted
     .map(() => {
       return todos => {
-        const length = todos.length
-        let newTodos = []
-        let i = -1
-
-        while(++i < length) {
-          const todo = todos[i]
-
-          if (!todo.completed) {
-            newTodos.push(todo)
-          }
-        }
-
-        return newTodos
+        return todos.filter(todo => !todo.get(`completed`))
       }
     })
     .subscribe(updates)
@@ -52,8 +35,9 @@ TodoActions.register = function (updates) {
   this.toggle
     .map(todo => {
       return todos => {
-        todo.toggleCompleted()
-        return todos
+        const index = todos.indexOf(todo)
+        const _todo = todo.update('completed', false, function (bool) { return !bool })
+        return todos.set(index, _todo)
       }
     })
     .subscribe(updates)
@@ -61,15 +45,7 @@ TodoActions.register = function (updates) {
   this.toggleAll
     .map(bool => {
       return todos => {
-        const length = todos.length
-        let i = -1
-
-        while(++i < length) {
-          const todo = todos[i]
-          todo.completed = bool
-        }
-
-        return todos
+        return todos.map(todo => todo.set('completed', bool))
       }
     })
     .subscribe(updates)
@@ -77,8 +53,8 @@ TodoActions.register = function (updates) {
   this.update
     .map(([todo, label]) => {
       return todos => {
-        todo.label = label
-        return todos
+        const index = todos.indexOf(todo)
+        return todos.set(index, todo.set('label', label))
       }
     })
     .subscribe(updates)
