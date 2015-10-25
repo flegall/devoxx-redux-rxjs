@@ -6,7 +6,7 @@ function Header () {
   handleSubmit
     .withLatestFrom(displayValue, (_, val) => val)
     .filter(val => val.length > 0)
-    .subscribe(TodoActions.add)
+    .subscribe(Actions.addTodo)
 
   handleChange.subscribe(displayValue)
   handleSubmit.map(() => '').subscribe(displayValue)

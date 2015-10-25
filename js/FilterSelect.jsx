@@ -5,12 +5,11 @@ function FilterSelect (props) {
   const handleActive = this.createEventHandler('active')
   const handleCompleted = this.createEventHandler('completed')
 
-  handleAll.merge(handleActive).merge(handleCompleted).subscribe(FilterActions.set)
+  handleAll.merge(handleActive).merge(handleCompleted).subscribe(Actions.setFilter)
 
-  const current = filter.map(f => f.type)
-  const isAll = current.map(c => c === 'all' ? 'selected' : '').startWith('')
-  const isActive = current.map(c => c === 'active' ? 'selected' : '').startWith('')
-  const isCompleted = current.map(c => c === 'completed' ? 'selected' : '').startWith('')
+  const isAll = filter.map(f => f === 'all' ? 'selected' : '').startWith('')
+  const isActive = filter.map(f => f === 'active' ? 'selected' : '').startWith('')
+  const isCompleted = filter.map(f => f === 'completed' ? 'selected' : '').startWith('')
 
   return (
     <ul className="filters">

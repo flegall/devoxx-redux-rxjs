@@ -1,11 +1,9 @@
 function App (props) {
-  const {filter, todos} = props
-
   return (
     <div>
       <section className="todoapp">
         <Header />
-        <Main todos={todos} filter={filter} />
+        <Main {...props} />
       </section>
       <Footer />
     </div>

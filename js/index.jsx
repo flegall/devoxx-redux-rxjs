@@ -1,6 +1,4 @@
-const todoStore = new TodoStore()
-const filterStore = new FilterStore()
-TodoActions.register(todoStore.updates)
-FilterActions.register(filterStore.updates)
+const state = new State()
+Actions.register(state.updates)
 
-Yolk.render(<App todos={todoStore.todos} filter={filterStore.filter} />, document.querySelector('#container'))
+Yolk.render(<App state={state.asObservable} />, document.querySelector('#container'))

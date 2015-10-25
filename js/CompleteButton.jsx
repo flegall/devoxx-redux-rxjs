@@ -1,7 +1,7 @@
 function CompleteButton () {
   const handleClear = this.createEventHandler()
 
-  handleClear.subscribe(TodoActions.clearCompleted)
+  handleClear.subscribe(Actions.clearCompletedTodos)
 
   return <button className="clear-completed" onClick={handleClear}>Clear completed</button>
 }

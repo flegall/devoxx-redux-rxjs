@@ -8,9 +8,8 @@ function TodoItem (props) {
   const handleEditEnd = this.createEventHandler(false)
 
   const editing = handleEditStart.merge(handleEditEnd).startWith(false)
-  const completed = todo.map(t => t.get('completed'))
-  const label = todo.map(t => t.get('label'))
-
+  const completed = todo.map(t => t.get(`completed`))
+  const label = todo.map(t => t.get(`label`))
 
   const itemClassNames = [
     completed.map(bool => bool ? `completed` : ``),
@@ -19,15 +18,15 @@ function TodoItem (props) {
 
   toggleComplete
     .withLatestFrom(todo, (_, t) => t)
-    .subscribe(TodoActions.toggle)
+    .subscribe(Actions.toggleTodo)
 
   handleRemove
     .withLatestFrom(todo, (_, t) => t)
-    .subscribe(TodoActions.remove)
+    .subscribe(Actions.removeTodo)
 
   handleEditEnd
     .withLatestFrom(todo, handleInputChange, (_, todo, v) => [todo, v])
-    .subscribe(TodoActions.update)
+    .subscribe(Actions.updateTodo)
 
   return (
     <li className={itemClassNames}>
