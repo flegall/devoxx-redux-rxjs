@@ -1,16 +1,15 @@
-function App () {
-  const state = new State()
-  Actions.register(state.updates)
+function App (props) {
+  const {state} = props
+  const todos = state.map(s => s.get(`todos`))
+  const filter = state.map(s => s.get(`filter`))
 
   return (
     <div>
       <section className="todoapp">
         <Header />
-        <Main state={state.asObservable} />
+        <Main todos={todos} filter={filter} />
       </section>
       <Footer />
     </div>
   );
 }
-
-Yolk.registerElement('todo-app', App)

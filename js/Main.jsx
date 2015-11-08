@@ -1,7 +1,5 @@
 function Main (props) {
-  const {state} = props
-  const todos = state.map(s => s.get(`todos`))
-  const filter = state.map(s => s.get(`filter`))
+  const {todos, filter} = props
 
   return (
     <section className="main">
