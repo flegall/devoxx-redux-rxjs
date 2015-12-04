@@ -12,6 +12,8 @@
     "yolk": "*"
   },
   "devDependencies": {
-    "babel": "^5.8.23"
+    "babel-cli": "^6.3.13",
+    "babel-plugin-transform-react-jsx": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13"
   }
 }
