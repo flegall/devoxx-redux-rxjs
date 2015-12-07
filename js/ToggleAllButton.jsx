@@ -1,5 +1,5 @@
-function ToggleAllButton () {
-  const handleChange = this.createEventHandler(null, true)
+function ToggleAllButton ({createEventHandler}) {
+  const handleChange = createEventHandler(null, true)
   const checked = handleChange.scan(acc => !acc, true)
 
   checked.skip(1).subscribe(Actions.toggleAllTodos)

@@ -1,4 +1,4 @@
-function App (props) {
+function App ({props}) {
   const {state} = props
   const todos = state.map(s => s.get(`todos`))
   const filter = state.map(s => s.get(`filter`))

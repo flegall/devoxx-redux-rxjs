@@ -1,11 +1,11 @@
-function TodoItem (props) {
+function TodoItem ({props, createEventHandler}) {
   const {todo} = props
 
-  const toggleComplete = this.createEventHandler()
-  const handleRemove = this.createEventHandler()
-  const handleInputChange = this.createEventHandler(ev => ev.target.value)
-  const handleEditStart = this.createEventHandler(true)
-  const handleEditEnd = this.createEventHandler(false)
+  const toggleComplete = createEventHandler()
+  const handleRemove = createEventHandler()
+  const handleInputChange = createEventHandler(ev => ev.target.value)
+  const handleEditStart = createEventHandler(true)
+  const handleEditEnd = createEventHandler(false)
 
   const editing = handleEditStart.merge(handleEditEnd).startWith(false)
   const completed = todo.map(t => t.get(`completed`))

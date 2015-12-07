@@ -1,4 +1,4 @@
-function TodoList (props) {
+function TodoList ({props}) {
   const {todos, filter} = props
   const filterFn = filter.map(getFilterFunction)
 

@@ -1,5 +1,5 @@
-function CompleteButton () {
-  const handleClear = this.createEventHandler()
+function CompleteButton ({createEventHandler}) {
+  const handleClear = createEventHandler()
 
   handleClear.subscribe(Actions.clearCompletedTodos)
 

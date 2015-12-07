@@ -1,9 +1,9 @@
-function FilterSelect (props) {
+function FilterSelect ({props, createEventHandler}) {
   const {filter} = props
 
-  const handleAll = this.createEventHandler('all')
-  const handleActive = this.createEventHandler('active')
-  const handleCompleted = this.createEventHandler('completed')
+  const handleAll = createEventHandler('all')
+  const handleActive = createEventHandler('active')
+  const handleCompleted = createEventHandler('completed')
 
   handleAll.merge(handleActive).merge(handleCompleted).subscribe(Actions.setFilter)
 

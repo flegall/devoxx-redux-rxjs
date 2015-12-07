@@ -1,4 +1,4 @@
-function Main (props) {
+function Main ({props}) {
   const {todos, filter} = props
 
   return (

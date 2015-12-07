@@ -1,4 +1,4 @@
-function TodoCount (props) {
+function TodoCount ({props}) {
   const count = props.todos.map(todos => {
     const length = todos.count(todo => !todo.get(`completed`))
 
