@@ -1,4 +1,7 @@
-function State () {
+import Rx from 'rx'
+import Immutable from 'immutable'
+
+export function State () {
   const initial = {
     todos: [],
     filter: `all`

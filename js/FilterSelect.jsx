@@ -1,4 +1,8 @@
-function FilterSelect ({props, createEventHandler}) {
+import {h} from 'yolk'
+
+import {Actions} from './Actions.js'
+
+export function FilterSelect ({props, createEventHandler}) {
   const {filter} = props
 
   const handleAll = createEventHandler('all')

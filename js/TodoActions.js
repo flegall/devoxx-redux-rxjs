@@ -1,4 +1,6 @@
-let TodoActions = {
+import {createTodo} from './createTodo'
+
+export let TodoActions = {
   add: new Rx.Subject(),
   remove: new Rx.Subject(),
   clearCompleted: new Rx.Subject(),

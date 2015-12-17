@@ -1,4 +1,9 @@
-function TodoList ({props}) {
+import {h} from 'yolk'
+
+import {getFilterFunction} from './getFilter.js'
+import {TodoItem} from './TodoItem.jsx'
+
+export function TodoList ({props}) {
   const {todos, filter} = props
   const filterFn = filter.map(getFilterFunction)
 

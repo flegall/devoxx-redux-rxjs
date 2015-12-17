@@ -1,4 +1,8 @@
-function CompleteButton ({createEventHandler}) {
+import {h} from 'yolk'
+
+import {Actions} from './Actions.js'
+
+export function CompleteButton ({createEventHandler}) {
   const handleClear = createEventHandler()
 
   handleClear.subscribe(Actions.clearCompletedTodos)

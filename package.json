@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "babel js --watch --out-file app.js",
+    "start": "watchify js/index.jsx -o app.js -v -d -t [ babelify ]",
     "reset": "git reset --hard origin/master && npm update yolk"
   },
   "dependencies": {
@@ -14,6 +14,9 @@
   "devDependencies": {
     "babel-cli": "^6.3.13",
     "babel-plugin-transform-react-jsx": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13"
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1"
   }
 }
