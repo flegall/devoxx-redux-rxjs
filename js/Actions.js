@@ -1,4 +1,8 @@
-const Actions = {
+import Rx from 'rx'
+
+import {createTodo} from './createTodo'
+
+export const Actions = {
   setFilter: new Rx.Subject(),
   addTodo: new Rx.Subject(),
   removeTodo: new Rx.Subject(),

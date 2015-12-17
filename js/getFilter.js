@@ -1,4 +1,4 @@
-function getFilterFunction (type) {
+export function getFilterFunction (type) {
   switch (type) {
     case `all`:
       return todos => todos

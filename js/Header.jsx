@@ -1,4 +1,9 @@
-function Header ({createEventHandler}) {
+import {h} from 'yolk'
+import Rx from 'rx'
+
+import {Actions} from './Actions.js'
+
+export function Header ({createEventHandler}) {
   const handleSubmit = createEventHandler(ev => ev.preventDefault())
   const handleChange = createEventHandler(ev => ev.target.value)
   const displayValue = new Rx.BehaviorSubject('')

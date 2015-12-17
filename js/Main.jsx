@@ -1,4 +1,12 @@
-function Main ({props}) {
+import {h} from 'yolk'
+
+import {ToggleAllButton} from './ToggleAllButton.jsx'
+import {TodoList} from './TodoList.jsx'
+import {TodoCount} from './TodoCount.jsx'
+import {FilterSelect} from './FilterSelect.jsx'
+import {CompleteButton} from './CompleteButton.jsx'
+
+export function Main ({props}) {
   const {todos, filter} = props
 
   return (

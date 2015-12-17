@@ -1,4 +1,8 @@
-function ToggleAllButton ({createEventHandler}) {
+import {h} from 'yolk'
+
+import {Actions} from './Actions.js'
+
+export function ToggleAllButton ({createEventHandler}) {
   const handleChange = createEventHandler(null, true)
   const checked = handleChange.scan(acc => !acc, true)
 

@@ -1,4 +1,8 @@
-function TodoItem ({props, createEventHandler}) {
+import {h} from 'yolk'
+
+import {Actions} from './Actions.js'
+
+export function TodoItem ({props, createEventHandler}) {
   const {todo} = props
 
   const toggleComplete = createEventHandler()
