@@ -4,7 +4,8 @@ import moment from 'moment'
 import uuid from 'uuid'
 
 export const Actions = {
-	addArticle: new Rx.Subject()
+	addArticle: new Rx.Subject(),
+	likeArticle: new Rx.Subject()
 }
 
 Actions.register = function (updates) {
@@ -16,6 +17,19 @@ Actions.register = function (updates) {
 			}
 		})
 		.subscribe(updates)
+
+	this.likeArticle
+		.map(article => {
+			return state => {
+				return state.update(`articles`, articles => {
+					const likes = article.get('likes') + 1;
+					const index = articles.indexOf(article)
+					return articles.set(index, article.set('likes', likes))
+				})
+			}
+		})
+		.subscribe(updates)
+
 }
 
 function createArticle(content) {
