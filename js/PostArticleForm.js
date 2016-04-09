@@ -7,7 +7,7 @@ export function PostArticleForm ({props}) {
 				<label for="exampleTextarea"><h2>Say something ?</h2></label>
 				<textarea className="form-control" id="exampleTextarea" rows="3" autoFocus></textarea>
 			</fieldset>
-			<button type="submit" className="btn btn-primary">Post article</button>
+			<button type="submit" className="btn btn-primary">Add article</button>
 		</form>
 	);
 }
