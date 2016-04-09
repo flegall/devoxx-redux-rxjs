@@ -12,8 +12,8 @@ export const Actions = {
 Actions.register = function (updates) {
 	this.addArticle
 		.map(content => {
-			const article = createArticle(content)
 			return state => {
+				const article = createArticle(content)
 				return state.update(`articles`, articles => articles.unshift(article))
 			}
 		})
