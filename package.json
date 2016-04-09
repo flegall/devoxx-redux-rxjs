@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "watchify js/index.jsx -o app.js -v -d -t [ babelify ]"
+    "start": "watchify js/index.js -o app.js -v -d -t [ babelify ]"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",

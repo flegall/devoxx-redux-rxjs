@@ -1,6 +1,6 @@
 import {h, render} from 'yolk'
 
-import {App} from './App.jsx'
+import {App} from './App'
 
 render(
   <App/>,
