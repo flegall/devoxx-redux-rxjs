@@ -4,6 +4,7 @@
     "start": "watchify js/index.jsx -o app.js -v -d -t [ babelify ]"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
     "immutable": "^3.7.5",
     "rx": "^4",
     "yolk": "*"
