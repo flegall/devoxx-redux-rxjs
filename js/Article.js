@@ -15,13 +15,13 @@ export function Article({props}) {
 		<p className="card-text">{content$}</p>
 		<a href="#" className="card-link">{likeCount$} Like</a>
 		<a href="#" className="card-link">Add comment</a>
-		<p></p>
+		<p/>
 		<ul className="list-group">
 			{comments$.map(comments => comments.map(comment =>
 				<li className="list-group-item">{comment}</li>
 			))}
 		</ul>
-		<p></p>
+		<p/>
 		<PostCommentForm />
 	</div>);
 }
