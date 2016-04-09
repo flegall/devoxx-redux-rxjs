@@ -1,8 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "watchify js/index.jsx -o app.js -v -d -t [ babelify ]",
-    "reset": "git reset --hard origin/master && npm update yolk"
+    "start": "watchify js/index.jsx -o app.js -v -d -t [ babelify ]"
   },
   "dependencies": {
     "immutable": "^3.7.5",
