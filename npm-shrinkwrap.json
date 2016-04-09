@@ -568,6 +568,11 @@
       "from": "cipher-base@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/cipher-base/-/cipher-base-1.0.2.tgz"
     },
+    "classnames": {
+      "version": "2.2.3",
+      "from": "classnames@latest",
+      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.2.3.tgz"
+    },
     "combine-source-map": {
       "version": "0.7.1",
       "from": "combine-source-map@>=0.7.1 <0.8.0",
@@ -2664,6 +2669,11 @@
       "version": "1.0.2",
       "from": "util-deprecate@>=1.0.1 <1.1.0",
       "resolved": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
+    },
+    "uuid": {
+      "version": "2.0.1",
+      "from": "uuid@latest",
+      "resolved": "https://registry.npmjs.org/uuid/-/uuid-2.0.1.tgz"
     },
     "v8flags": {
       "version": "2.0.11",

@@ -5,6 +5,7 @@ export function State() {
 	const initial = {
 		articles: [
 			{
+				id: '6c84fb90-12c4-11e1-840d-7b25c5ee775a',
 				date: 'April 9, 2016 3:26 PM',
 				content: 'Article content',
 				likes: 1,

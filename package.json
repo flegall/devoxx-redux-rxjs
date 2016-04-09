@@ -5,9 +5,11 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
+    "classnames": "^2.2.3",
     "immutable": "^3.7.5",
     "moment": "^2.12.0",
     "rx": "^4",
+    "uuid": "^2.0.1",
     "yolk": "*"
   },
   "devDependencies": {
