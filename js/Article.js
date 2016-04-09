@@ -26,6 +26,6 @@ export function Article({props, createEventHandler}) {
 			))}
 		</ul>
 		<p/>
-		<PostCommentForm />
+		<PostCommentForm article={article}/>
 	</div>);
 }

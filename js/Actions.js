@@ -5,7 +5,8 @@ import uuid from 'uuid'
 
 export const Actions = {
 	addArticle: new Rx.Subject(),
-	likeArticle: new Rx.Subject()
+	likeArticle: new Rx.Subject(),
+	addComment: new Rx.Subject()
 }
 
 Actions.register = function (updates) {
@@ -30,6 +31,17 @@ Actions.register = function (updates) {
 		})
 		.subscribe(updates)
 
+	this.addComment
+		.map(({text, article}) => {
+			return state => {
+				return state.update(`articles`, articles => {
+					const comments = article.get('comments').push(text);
+					const index = articles.indexOf(article)
+					return articles.set(index, article.set('comments', comments))
+				})
+			}
+		})
+		.subscribe(updates)
 }
 
 function createArticle(content) {
