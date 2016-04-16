@@ -1,4 +1,4 @@
-import Rx from 'rx'
+import Rx from 'rxjs'
 import Immutable from 'immutable'
 import moment from 'moment'
 import uuid from 'uuid'

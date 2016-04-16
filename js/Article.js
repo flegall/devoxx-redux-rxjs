@@ -23,7 +23,7 @@ export function Article({props, createEventHandler}) {
 		<ul className="list-group">
 			{comments$.map(comments => comments.map(comment =>
 				<li className="list-group-item">{comment}</li>
-			))}
+			).toArray())}
 		</ul>
 		<p/>
 		<PostCommentForm article={article}/>

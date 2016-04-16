@@ -1,4 +1,4 @@
-import Rx from 'rx'
+import Rx from 'rxjs'
 import Immutable from 'immutable'
 
 export function State() {
@@ -8,6 +8,5 @@ export function State() {
 	this.asObservable = this.updates
 		.scan((state, operation) =>
 			operation(state)
-		)
-		.shareReplay(1)
+		).share()
 }

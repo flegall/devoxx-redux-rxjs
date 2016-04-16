@@ -1,6 +1,6 @@
 import {h} from 'yolk'
 
-import Rx from 'rx'
+import Rx from 'rxjs'
 import classnames from 'classnames';
 
 import {Actions} from './Actions'

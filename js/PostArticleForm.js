@@ -2,14 +2,14 @@ import {h} from 'yolk'
 
 import {Actions} from './Actions'
 
-import Rx from 'rx'
+import Rx from 'rxjs'
 import classnames from 'classnames';
 
 export function PostArticleForm ({props, createEventHandler}) {
 	const handleSubmit = createEventHandler(ev => ev.preventDefault())
 	const handleChange = createEventHandler(ev => ev.target.value)
 	const displayValue = new Rx.BehaviorSubject('')
-
+	
 	handleSubmit
 		.withLatestFrom(displayValue, (_, val) => val)
 		.filter(val => val.length > 0)
