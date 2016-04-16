@@ -1,13 +1,11 @@
 import {h, render} from 'yolk'
 
 import {App} from './App'
-import {State} from './State'
-import {Actions} from './Actions'
+import {Store} from './Store'
 
-const state = new State()
-Actions.register(state.updates)
+const store = new Store()
 
 render(
-	<App state={state.asObservable}/>,
+	<App state={store.asObservable}/>,
 	document.querySelector('#container')
 )

@@ -1,6 +1,6 @@
 import {h} from 'yolk'
 
-import {Actions} from './Actions'
+import {Actions} from './Store'
 
 import Rx from 'rx'
 import classnames from 'classnames';

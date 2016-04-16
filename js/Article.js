@@ -1,7 +1,7 @@
 import {h} from 'yolk'
 
 import {PostCommentForm} from './PostCommentForm'
-import {Actions} from './Actions'
+import {Actions} from './Store'
 
 export function Article({props, createEventHandler}) {
 	const {article} = props;

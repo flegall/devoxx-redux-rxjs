@@ -3,7 +3,7 @@ import {h} from 'yolk'
 import Rx from 'rx'
 import classnames from 'classnames';
 
-import {Actions} from './Actions'
+import {Actions} from './Store'
 
 export function PostCommentForm({props, createEventHandler}) {
 	const article$ = props.article
