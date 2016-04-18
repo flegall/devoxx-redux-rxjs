@@ -14,10 +14,8 @@ export class Store {
 		}]};
 		this.updates$ = new Rx.BehaviorSubject(Immutable.fromJS(initialState))
 		this.asObservable = this.updates$
-		
+
 		Actions.addArticle$.subscribe(_ => console.log(_))
-		Actions.likeArticle$.subscribe(_ => console.log(_))
-		Actions.addComment$.subscribe(_ => console.log(_))
 	}
 }
 
