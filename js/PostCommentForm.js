@@ -18,7 +18,7 @@ export function PostCommentForm({props, createEventHandler}) {
 		.withLatestFrom(article$, (text, article) => {
 			return {text, article}
 		})
-		.subscribe(Actions.addComment)
+		.subscribe(Actions.addComment$)
 
 	handleChange.subscribe(displayValue)
 	handleSubmit.map(() => '').subscribe(displayValue)

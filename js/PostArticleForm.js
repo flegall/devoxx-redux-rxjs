@@ -13,7 +13,7 @@ export function PostArticleForm ({props, createEventHandler}) {
 	handleSubmit
 		.withLatestFrom(displayValue, (_, val) => val)
 		.filter(val => val.length > 0)
-		.subscribe(Actions.addArticle)
+		.subscribe(Actions.addArticle$)
 
 	handleChange.subscribe(displayValue)
 	handleSubmit.map(() => '').subscribe(displayValue)

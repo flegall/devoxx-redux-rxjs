@@ -13,7 +13,7 @@ export function Article({props, createEventHandler}) {
 
 	const handleLike = createEventHandler()
 	handleLike.withLatestFrom(article, (_, a) => a)
-		.subscribe(Actions.likeArticle)
+		.subscribe(Actions.likeArticle$)
 
 	return (<div className="card card-block">
 		<h5 className="card-title">{date$}</h5>
