@@ -13,22 +13,18 @@ export class Store {
 			comments: ['Me too']
 		}]};
 		this.updates$ = new Rx.BehaviorSubject(Immutable.fromJS(initialState))
-		this.asObservable = this.updates$.scan((state, content) => {
-			const action = (state) => {
-				const article = Immutable.fromJS({
-								id: uuid.v1(),
-								date: moment().format('LLL'),
-								content,
-								likes: 0,
-								comments: []
-							})
-				return state.update('articles', articles => articles.unshift(article))
-			}
-			return action(state)
+		this.asObservable = this.updates$.scan((state, action) => action(state))
 
-		});
-
-		Actions.addArticle$.subscribe(this.updates$)
+		Actions.addArticle$.map(content => state => {
+			const article = Immutable.fromJS({
+							id: uuid.v1(),
+							date: moment().format('LLL'),
+							content,
+							likes: 0,
+							comments: []
+						})
+			return state.update('articles', articles => articles.unshift(article))
+		}).subscribe(this.updates$)
 	}
 }
 
