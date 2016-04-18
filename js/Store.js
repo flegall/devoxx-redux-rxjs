@@ -14,14 +14,18 @@ export class Store {
 		}]};
 		this.updates$ = new Rx.BehaviorSubject(Immutable.fromJS(initialState))
 		this.asObservable = this.updates$.scan((state, content) => {
-			const article = Immutable.fromJS({
-							id: uuid.v1(),
-							date: moment().format('LLL'),
-							content,
-							likes: 0,
-							comments: []
-						})
-			return state.update('articles', articles => articles.unshift(article))
+			const action = (state) => {
+				const article = Immutable.fromJS({
+								id: uuid.v1(),
+								date: moment().format('LLL'),
+								content,
+								likes: 0,
+								comments: []
+							})
+				return state.update('articles', articles => articles.unshift(article))
+			}
+			return action(state)
+
 		});
 
 		Actions.addArticle$.subscribe(this.updates$)
