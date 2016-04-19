@@ -25,6 +25,25 @@ export class Store {
 						})
 			return state.update('articles', articles => articles.unshift(article))
 		}).subscribe(this.updates$)
+
+		Actions.likeArticle$.map(article => state => {
+			return state.update('articles', articles => {
+				const likes = article.get('likes') + 1;
+				const index = articles.indexOf(article)
+				return articles.set(index, article.set('likes', likes))
+			})
+		}).subscribe(this.updates$)
+
+		Actions.addComment$
+			.map(({text, article}) => {
+				return state => {
+					return state.update('articles', articles => {
+						const comments = article.get('comments').push(text);
+						const index = articles.indexOf(article)
+						return articles.set(index, article.set('comments', comments))
+					})
+				}
+			}).subscribe(this.updates$)
 	}
 }
 
