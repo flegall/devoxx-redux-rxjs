@@ -8,7 +8,7 @@
   
 ## Étapes :
 
-Récupéréer les branches : 
+Récupérer les branches : 
 - step_0
 - step_1
 - step_2
