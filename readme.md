@@ -15,3 +15,7 @@ Récupérer les branches :
 - step_3
 - step_4
 - step_5
+
+## Présentation :
+
+https://github.com/flegall/devoxx-redux-rxjs/blob/master/presentation.pdf
